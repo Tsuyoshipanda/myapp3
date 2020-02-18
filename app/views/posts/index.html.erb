@@ -1,0 +1,24 @@
+<h1>投稿一覧ページです</h1>
+
+<p>検索</p>
+<%= form_tag(posts_search_path, method: "get") do %>
+  <%= select_tag 'search_task_type', options_for_select([["選択してください", ""],["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ]) %>
+  <%= text_field_tag 'search_free_word' %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+
+<% if @posts.blank? %>
+  <h2>該当する投稿はありません</h2>
+<% end %>
+
+<% @posts.each do |post| %>
+  <%= link_to(post.user.name, "/users/#{post.user.id}")%>
+  <%#<%= link_to(post.content , "/posts/#{post.id}") %>
+  <%= post.task1 %>
+  <%= post.task2 %>
+  <%= post.task3 %>
+  <%= post.task4 %>
+  <%= post.task5 %>
+  <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
+<% end %>

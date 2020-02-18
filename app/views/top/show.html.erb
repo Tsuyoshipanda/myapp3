@@ -1,0 +1,10 @@
+<h1>Chat</h1>
+<ul id = "chat-index">
+  <% @text.each do |message| %>
+<li><%= message.text %></li>
+  <% end %>
+</ul>
+<%= form_tag("/top/create") do %>
+<input id="chat-form" type="text" name="message" placeholder='入力' data-behavior="chat_post">
+<%= submit_tag '送信'%>
+<% end %>

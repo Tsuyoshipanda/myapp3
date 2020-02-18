@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+
+
+    <% if @current_user %>
+      <%= link_to("投稿一覧" , "/posts/index") %>
+    <% else %>
+      <%= link_to("Leave it." , "/") %>
+    <% end %>
+
+    <% if @current_user %>
+
+      <div class="header-link">
+        <%= link_to(@current_user.name , "/users/#{@current_user.id}") %>
+        <%= link_to("投稿一覧" , "/posts/index") %>
+        <%= link_to("新規投稿" , "/posts/new") %>
+        <%= link_to("ログアウト" , "/logout" , {method: :post}) %>
+      </div>
+
+    <% else %>
+
+      <div class="header-link">
+        <%= link_to("ログイン" , "/login") %>
+        <%= link_to("新規登録" , "/users/new")%>
+        <%= link_to("Leave it.とは" , "/about") %>
+      </div>
+
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

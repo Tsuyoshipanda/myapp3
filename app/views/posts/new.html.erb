@@ -1,0 +1,22 @@
+<h1>投稿用ページ</h1>
+
+<%= form_for @post,url:posts_create_path do |f| %>
+  <%= f.label :task1, "task1" %>
+  <%= f.text_field :task1 %>
+
+  <%= f.label :task2, "task2" %>
+  <%= f.text_field :task2 %>
+
+  <%= f.label :task3, "task3" %>
+  <%= f.text_field :task3 %>
+
+  <%= f.label :task4, "task4" %>
+  <%= f.text_field :task4 %>
+
+  <%= f.label :task5, "task5" %>
+  <%= f.text_field :task5 %>
+
+  <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+
+  <%= f.submit "投稿" %>
+<% end %>
