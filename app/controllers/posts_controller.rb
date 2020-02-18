@@ -38,7 +38,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.content = params[:content]
+    @post.task1 = params[:task1]
+    @post.task2 = params[:task2]
+    @post.task3 = params[:task3]
+    @post.task4 = params[:task4]
+    @post.task5 = params[:task5]
+    @post.task_type = params[:task_type]
     @post.save
 
     redirect_to("/posts/index")

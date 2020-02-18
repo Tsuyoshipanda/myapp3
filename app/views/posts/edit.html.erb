@@ -1,6 +1,11 @@
 <h1>編集する</h1>
 
 <%= form_tag("/posts/#{@post.id}/update") do %>
-  <textarea name="content"><%= @post.content %></textarea>
-  <input type="submit" value="保存">
+  <%= text_field_tag 'task1' , @post.task1%>
+  <%= text_field_tag 'task2' , @post.task2%>
+  <%= text_field_tag 'task3' , @post.task3%>
+  <%= text_field_tag 'task4' , @post.task4%>
+  <%= text_field_tag 'task5' , @post.task5%>
+  <%= select_tag 'task_type', options_for_select([["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ], prompt: @post.task_type) %>
+  <%= submit_tag '検索'%>
 <% end %>
