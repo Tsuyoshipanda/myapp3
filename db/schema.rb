@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_184546) do
+ActiveRecord::Schema.define(version: 2020_02_19_091602) do
 
   create_table "posts", force: :cascade do |t|
     t.text "content"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_184546) do
     t.text "task4"
     t.text "task5"
     t.string "task_type"
+    t.date "deadline"
   end
 
   create_table "texts", force: :cascade do |t|

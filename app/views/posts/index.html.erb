@@ -20,5 +20,6 @@
   <%= post.task3 %>
   <%= post.task4 %>
   <%= post.task5 %>
+  <%= post.deadline.strftime("%Y年%m月%d日") %>
   <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
 <% end %>

@@ -18,5 +18,19 @@
 
   <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
 
+  <div class="deadline">
+  <%= f.label :deadline, "締め切り" %>
+  <%= raw sprintf(
+              f.date_select(
+                  :deadline,
+                  use_month_numbers: true,
+                  start_year:        2020,
+                  default:           Date.today,
+                  date_separator:    '%s'), # 年月日区切りをそれぞれ指定
+              '年 ', '月 ') + '日'
+   %>
+  </div>
+
+
   <%= f.submit "投稿" %>
 <% end %>

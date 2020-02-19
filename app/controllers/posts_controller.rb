@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user
   before_action :ensure_corrent_user, {only: [:edit, :update, :destroy]}
 
+  require 'date'
+
   def index
     if params[:search_task_type] == nil && params[:search_free_word] == nil
       @posts = Post.all
@@ -26,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:task1,:task2,:task3,:task4,:task5,:task_type))
+    @post = Post.new(params.require(:post).permit(:task1,:task2,:task3,:task4,:task5,:task_type,:"deadline(1i)",:"deadline(2i)",:"deadline(3i)"))
     @post.user_id = @current_user.id
     @post.save
     redirect_to("/posts/index")
