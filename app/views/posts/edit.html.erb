@@ -7,5 +7,5 @@
   <%= text_field_tag 'task4' , @post.task4%>
   <%= text_field_tag 'task5' , @post.task5%>
   <%= select_tag 'task_type', options_for_select([["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ], prompt: @post.task_type) %>
-  <%= submit_tag '検索'%>
+  <%= submit_tag '保存する'%>
 <% end %>
