@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:search_task_type] == nil && params[:search_free_word] == nil
       @posts = Post.all
     else
-      @posts = Post.where('task_type=? OR task1 LIKE ? OR task2 LIKE ? OR task3 LIKE ? OR task4 LIKE ? OR task5 LIKE ?', params[:search_task_type], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word])
+      @posts = Post.where('task_type=? OR task1 LIKE ? OR task2 LIKE ? OR task3 LIKE ? OR task4 LIKE ? OR task5 LIKE ?', params[:search_task_type], "%#{params[:search_free_word]}%", "%#{params[:search_free_word]}%", "%#{params[:search_free_word]}%", "%#{params[:search_free_word]}%", "%#{params[:search_free_word]}%")
     end
 
   end
