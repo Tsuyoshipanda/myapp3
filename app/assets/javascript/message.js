@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function(){
   $('.form').on('submit', function(e){
     e.preventDefault()
     var formData = new FormData(this);
-    var url = (window.location.href);
+    var url = "/messages";
     $.ajax({
       url: url,
       type: 'POST',
