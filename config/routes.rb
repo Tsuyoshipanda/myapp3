@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'messages' => 'messages#index'
+  post 'messages' => 'messages#create'
   post 'top/create' => 'top#create'
   get 'top/show' => 'top#show'
   get 'login' => 'users#login_form'
@@ -10,8 +12,6 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   post 'users/:id/update' => 'users#update'
   get 'users/:id/edit' => 'users#edit'
-  # get 'posts/search_task_type' => 'posts#search_task_type'
-  # get 'posts/search_free_word' => 'posts#search_free_word'
   get 'posts/search' => 'posts#search'
   get 'posts/index' => 'posts#index'
   get 'posts/new' => 'posts#new'
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get 'about' => 'home#about'
   post 'create' => 'home#create'
+
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
