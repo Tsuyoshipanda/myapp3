@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     if @message.save
       respond_to do |format|
         format.html { redirect_to "messages_path" }
-        format.json 
+        format.json
       end
     else
       render :index
