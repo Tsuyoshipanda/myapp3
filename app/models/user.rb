@@ -5,6 +5,9 @@ class User < ApplicationRecord
   validates :name, {presence: true}
 
   has_many :messages
+  has_many :bookmarks
+  has_many :posts
+  has_many :bookmark_posts, through: :bookmarks, source: :post
 
   def posts
     return Post.where(user_id: self.id)

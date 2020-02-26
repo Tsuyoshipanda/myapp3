@@ -22,4 +22,9 @@
   <%= post.task5 %>
   <%= post.deadline.strftime("%Y年%m月%d日") %>
   <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
+  <% if post.bookmarked_by?(current_user) %>
+        <p><%=link_to "ブックマーク解除", post_bookmarks_path(post.id), method: :delete %></p>
+    <% else %>
+        <p><%=link_to "ブックマーク登録", post_bookmarks_path(post.id), method: :post %></p>
+    <% end %>
 <% end %>

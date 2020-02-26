@@ -7,5 +7,16 @@
 
 <% @user.posts.each do |post| %>
   <%= link_to(post.user.name, "/users/#{post.user.id}")%>
-  <%= link_to(post.content , "/posts/#{post.id}") %>
+  <%# <%= link_to(post.content , "/posts/#{post.id}") %>
+<% end %>
+
+<% @bookmark_posts.each do |post| %>
+  <hr>
+  <span>ブックマーク内容: </span>
+  <p><%= post.task1 %></p>
+  <p><%= post.task2 %></p>
+  <p><%= post.task3 %></p>
+  <p><%= post.task4 %></p>
+  <p><%= post.task5 %></p>
+
 <% end %>

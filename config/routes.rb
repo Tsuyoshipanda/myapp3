@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bookmarks/create'
+  get 'bookmarks/destroy'
   get 'messages' => 'messages#index'
   post 'messages' => 'messages#create'
   post 'top/create' => 'top#create'
@@ -25,6 +27,9 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get 'about' => 'home#about'
   post 'create' => 'home#create'
+  resources :posts do
+    resource :bookmarks, only: [:create, :destroy]
+  end
 
 
 

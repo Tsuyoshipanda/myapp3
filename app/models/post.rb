@@ -4,4 +4,10 @@ class Post < ApplicationRecord
   end
 
   validates :deadline, {presence: true}
+  has_many :bookmarks
+  belongs_to :user
+
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
+  end
 end
