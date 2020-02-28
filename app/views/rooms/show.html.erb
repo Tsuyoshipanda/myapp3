@@ -1,0 +1,6 @@
+<h1>chat</h1>
+<div id='chats' data-room_id="<%= @room.id %>">
+  <%= render @chats %>
+</div>
+<%= label_tag :content, 'Say something:' %>
+<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>

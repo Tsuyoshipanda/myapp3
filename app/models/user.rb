@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :name, {presence: true}
 
   has_many :messages
+  has_many :chats
 
   def posts
     return Post.where(user_id: self.id)
