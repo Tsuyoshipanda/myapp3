@@ -10,13 +10,21 @@
   <%# <%= link_to(post.content , "/posts/#{post.id}") %>
 <% end %>
 
-<% @bookmark_posts.each do |post| %>
-  <hr>
-  <span>ブックマーク内容: </span>
-  <p><%= post.task1 %></p>
-  <p><%= post.task2 %></p>
-  <p><%= post.task3 %></p>
-  <p><%= post.task4 %></p>
-  <p><%= post.task5 %></p>
+<p>ブックマーク: </p>
+<% if @bookmark_posts%>
+  <% @bookmark_posts.each do |post| %>
+    <hr>
+    <p><%= post.user.name %></p>
+    <p><%= post.task1 %></p>
+    <p><%= post.task2 %></p>
+    <p><%= post.task3 %></p>
+    <p><%= post.task4 %></p>
+    <p><%= post.task5 %></p>
+    <p><%= post.deadline.strftime("%Y年%m月%d日") %></p>
+
+  <% end %>
+
+<% else %>
+  <p>まだブックマークしていません</p>
 
 <% end %>
