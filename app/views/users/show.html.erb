@@ -1,22 +1,28 @@
 <h2><%= @user.name %></h2>
 <p><%= @user.email %></p>
 
-<% if @user.id == @current_user.id %>
+<p><% if @user.id == @current_user.id %>
   <%= link_to("編集" , "/users/#{@user.id}/edit") %>
 <% end %>
-
+</p>
 <% @user.posts.each do |post| %>
   <%= link_to(post.user.name, "/users/#{post.user.id}")%>
-  <%# <%= link_to(post.content , "/posts/#{post.id}") %>
+  <p><%= post.task1 %><%= post.task_type_1%></p>
+  <p><%= post.task2 %><%= post.task_type_2%></p>
+  <p><%= post.task3 %><%= post.task_type_3%></p>
+  <p><%= post.task4 %><%= post.task_type_4%></p>
+  <p><%= post.task5 %><%= post.task_type_5%></p>
 <% end %>
 
 <% @bookmark_posts.each do |post| %>
   <hr>
   <span>ブックマーク内容: </span>
-  <p><%= post.task1 %></p>
-  <p><%= post.task2 %></p>
-  <p><%= post.task3 %></p>
-  <p><%= post.task4 %></p>
-  <p><%= post.task5 %></p>
+  <p><%= link_to(post.user.name, "/users/#{post.user.id}")%></p>
+  <p><%= post.task1 %><%= post.task_type_1%></p>
+  <p><%= post.task2 %><%= post.task_type_2%></p>
+  <p><%= post.task3 %><%= post.task_type_3%></p>
+  <p><%= post.task4 %><%= post.task_type_4%></p>
+  <p><%= post.task5 %><%= post.task_type_5%></p>
+
 
 <% end %>
