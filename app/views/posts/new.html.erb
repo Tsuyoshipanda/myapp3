@@ -3,25 +3,28 @@
 <%= form_for @post,url:posts_create_path do |f| %>
   <p><%= f.label :task1, "task1" %>
      <%= f.text_field :task1 %>
+     <%= f.select :task_type_1, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
   </p>
 
   <p><%= f.label :task2, "task2" %>
      <%= f.text_field :task2 %>
+     <%= f.select :task_type_2, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
   </p>
 
   <p><%= f.label :task3, "task3" %>
      <%= f.text_field :task3 %>
+     <%= f.select :task_type_3, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
   </p>
 
   <p><%= f.label :task4, "task4" %>
      <%= f.text_field :task4 %>
+     <%= f.select :task_type_4, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
   </p>
 
   <p><%= f.label :task5, "task5" %>
      <%= f.text_field :task5 %>
+     <%= f.select :task_type_5, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
   </p>
-
-  <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
 
   <div class="deadline">
   <%= f.label :deadline, "締め切り" %>

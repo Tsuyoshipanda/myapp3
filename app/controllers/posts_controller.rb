@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:search_task_type] == nil && params[:search_free_word] == nil
       @posts = Post.all
     else
-      @posts = Post.where('task_type=? OR task1 LIKE ? OR task2 LIKE ? OR task3 LIKE ? OR task4 LIKE ? OR task5 LIKE ?', params[:search_task_type], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word])
+      @posts = Post.where('task_type_1=? OR task_type_2=? OR task_type_3=? OR task_type_4=? OR task_type_5=? OR task1 LIKE ? OR task2 LIKE ? OR task3 LIKE ? OR task4 LIKE ? OR task5 LIKE ?', params[:search_task_type], params[:search_task_type], params[:search_task_type], params[:search_task_type], params[:search_task_type], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word], params[:search_free_word])
     end
 
   end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:task1,:task2,:task3,:task4,:task5,:task_type,:"deadline(1i)",:"deadline(2i)",:"deadline(3i)"))
+    @post = Post.new(params.require(:post).permit(:task1,:task2,:task3,:task4,:task5,:task_type_1,:task_type_2,:task_type_3,:task_type_4,:task_type_5,:"deadline(1i)",:"deadline(2i)",:"deadline(3i)"))
     @post.user_id = @current_user.id
     @post.save
     redirect_to("/posts/index")
@@ -45,7 +45,11 @@ class PostsController < ApplicationController
     @post.task3 = params[:task3]
     @post.task4 = params[:task4]
     @post.task5 = params[:task5]
-    @post.task_type = params[:task_type]
+    @post.task_type = params[:task_type_1]
+    @post.task_type = params[:task_type_2]
+    @post.task_type = params[:task_type_3]
+    @post.task_type = params[:task_type_4]
+    @post.task_type = params[:task_type_5]
     @post.save
 
     redirect_to("/posts/index")

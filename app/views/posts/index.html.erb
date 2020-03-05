@@ -20,7 +20,12 @@
   <%= post.task4 %>
   <%= post.task5 %>
   <%= post.deadline.strftime("%Y年%m月%d日") %>
-  <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
+  <%= link_to post.task_type_1, posts_search_path(search_task_type: post.task_type_1) %>
+  <%= link_to post.task_type_2, posts_search_path(search_task_type: post.task_type_2) %>
+  <%= link_to post.task_type_3, posts_search_path(search_task_type: post.task_type_3) %>
+  <%= link_to post.task_type_4, posts_search_path(search_task_type: post.task_type_4) %>
+  <%= link_to post.task_type_5, posts_search_path(search_task_type: post.task_type_5) %>
+
   <div id = "bookmark_<%= post.id %>">
     <%= render partial: 'bookmarks/bookmark', locals: {post: post} %>
   </div>
