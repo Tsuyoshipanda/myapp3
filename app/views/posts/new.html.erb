@@ -4,40 +4,79 @@
   <p><%= f.label :task1, "task1" %>
      <%= f.text_field :task1 %>
      <%= f.select :task_type_1, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+     <%= f.label :deadline_1, "締め切り" %>
+     <%= raw sprintf(
+                 f.date_select(
+                     :deadline_1,
+                     use_month_numbers: true,
+                     start_year:        2020,
+                     default:           Date.today,
+                     date_separator:    '%s'),
+                 '年 ', '月 ') + '日'
+      %>
   </p>
 
   <p><%= f.label :task2, "task2" %>
      <%= f.text_field :task2 %>
      <%= f.select :task_type_2, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+     <%= f.label :deadline_2, "締め切り" %>
+     <%= raw sprintf(
+                 f.date_select(
+                     :deadline_2,
+                     use_month_numbers: true,
+                     start_year:        2020,
+                     default:           Date.today,
+                     date_separator:    '%s'),
+                 '年 ', '月 ') + '日'
+      %>
   </p>
 
   <p><%= f.label :task3, "task3" %>
      <%= f.text_field :task3 %>
      <%= f.select :task_type_3, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+     <%= f.label :deadline_3, "締め切り" %>
+     <%= raw sprintf(
+                 f.date_select(
+                     :deadline_3,
+                     use_month_numbers: true,
+                     start_year:        2020,
+                     default:           Date.today,
+                     date_separator:    '%s'),
+                 '年 ', '月 ') + '日'
+      %>
   </p>
 
   <p><%= f.label :task4, "task4" %>
      <%= f.text_field :task4 %>
      <%= f.select :task_type_4, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+     <%= f.label :deadline_4, "締め切り" %>
+     <%= raw sprintf(
+                 f.date_select(
+                     :deadline_4,
+                     use_month_numbers: true,
+                     start_year:        2020,
+                     default:           Date.today,
+                     date_separator:    '%s'),
+                 '年 ', '月 ') + '日'
+      %>
   </p>
 
   <p><%= f.label :task5, "task5" %>
      <%= f.text_field :task5 %>
      <%= f.select :task_type_5, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+     <%= f.label :deadline_5, "締め切り" %>
+     <%= raw sprintf(
+                 f.date_select(
+                     :deadline_5,
+                     use_month_numbers: true,
+                     start_year:        2020,
+                     default:           Date.today,
+                     date_separator:    '%s'),
+                 '年 ', '月 ') + '日'
+      %>
   </p>
 
-  <div class="deadline">
-  <%= f.label :deadline, "締め切り" %>
-  <%= raw sprintf(
-              f.date_select(
-                  :deadline,
-                  use_month_numbers: true,
-                  start_year:        2020,
-                  default:           Date.today,
-                  date_separator:    '%s'),
-              '年 ', '月 ') + '日'
-   %>
-  </div>
+
 
 
   <%= f.submit "投稿" %>

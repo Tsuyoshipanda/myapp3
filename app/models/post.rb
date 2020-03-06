@@ -3,7 +3,11 @@ class Post < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
 
-  validates :deadline, {presence: true}
+  validates :deadline_1, {presence: true}
+  validates :deadline_2, {presence: true}
+  validates :deadline_3, {presence: true}
+  validates :deadline_4, {presence: true}
+  validates :deadline_5, {presence: true}
   has_many :bookmarks
   belongs_to :user
 

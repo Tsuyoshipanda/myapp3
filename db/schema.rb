@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_073855) do
+ActiveRecord::Schema.define(version: 2020_03_06_034755) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
@@ -57,7 +57,11 @@ ActiveRecord::Schema.define(version: 2020_03_05_073855) do
     t.string "task_type_3"
     t.string "task_type_4"
     t.string "task_type_5"
-    t.date "deadline"
+    t.date "deadline_1"
+    t.date "deadline_2"
+    t.date "deadline_3"
+    t.date "deadline_4"
+    t.date "deadline_5"
   end
 
   create_table "rooms", force: :cascade do |t|
