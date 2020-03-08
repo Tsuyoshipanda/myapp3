@@ -1,45 +1,99 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// -----------共通---------------
+
 * {
   box-sizing: border-box;
+}
+
+html{
+  font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 
-header {
-  height: 80px;
-  background-color: white;
-  // color: rgb(255, 255, 255);
+ul, li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-body {
+body{
+  margin: 0;
+}
+
+a:visited{
+  color: black;
+}
+
+.header_logo{
+  position: relative;
+  float: left;
+  padding-left: 40px;
+  line-height: 64px;
+  z-index: 10;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header_logo a{
+  text-decoration: none;
+}
+.header-menus {
+  position: relative;
+  float: right;
+  padding-right: 40px;
+  z-index: 10;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header-menus li {
+  position: relative;
+  float: left;
+  line-height: 64px;
+  padding-left: 25px;
+  z-index: 10;
+}
+
+.header-menus a {
+  position: relative;
+  float: left;
+  z-index: 10;
+  text-decoration: none;
+}
+
+// -----------トップページ---------------
+
+.background_img{
+  background: image-url('top_background.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  height: 800px;
+  position: absolute;
   width: 100%;
-  height: 200px;
-  background-color: rgb(130, 215, 246);
+  margin: 0px;
+  padding: 0;
+  top: 0;
+  z-index: 0;
 }
 
-.catchphrase {
-  size: 10px;
+.title{
+  position: relative;
+  top: 250px;
   text-align: center;
-  padding-top: 6%;
+  font-size: 70px;
+  z-index: 10;
 }
 
-.title {
-  display: inline-block;
-  padding: 10px;
-}
-
-.header-link {
-  display: inline-block;
-  padding-top: 10px;
-  padding-left: 30px;
-}
-
-// .background-img {
-//   display: block;
-//   width: 100%;
-// }
-
-.user-links {
+.catch_copy{
+  position: relative;
+  top: 300px;
   text-align: center;
+  font-size: 30px;
+  z-index: 10;
 }

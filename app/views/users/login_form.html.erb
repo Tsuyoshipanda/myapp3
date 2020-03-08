@@ -1,7 +1,29 @@
-<%= form_tag("/login") do %>
-  メールアドレス
-  <input name = "email" value = "<%= @email %>">
-  パスワード
-  <input type = "password" name = "password" value = "<%= @password %>">
-  <input type = "submit" value = "ログイン">
-<% end %>
+<div class="login">
+  <div class="title_login">
+    <h1>Leave it.</h1>
+  </div>
+  <div class="login_box">
+    <div class="login_hedding">
+      <p>ログイン</p>
+    </div>
+    <ul class="login_form">
+      <%= form_tag("/login") do %>
+
+      <p class = "login_mail_address">メールアドレス</p>
+      <li>
+        <input name = "email" value = "<%= @email %>">
+      </li>
+
+      <p class = "login_password">パスワード</p>
+      <li>
+        <input type = "password" name = "password" value = "<%= @password %>">
+      </li>
+
+      <li>
+        <input type = "submit" value = "ログイン" class = "submit">
+      </li>
+
+      <% end %>
+    </ul>
+  </div>
+</div>

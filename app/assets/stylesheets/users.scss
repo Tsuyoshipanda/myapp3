@@ -1,3 +1,115 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+// ---------新規登録ページ-----------
+
+.new_register{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 100px;
+}
+
+.register_box{
+  padding: 2em 1em;
+  margin: 30px 500px;
+  font-weight: bold;
+  background: #FFF;
+  border: solid 3px rgb(247,190,0);
+  border-radius: 10px;
+}
+.new_user p{
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.title_new{
+  margin-bottom: 50px;
+}
+
+.register_form p{
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+.user_name{
+  position: relative;
+  padding-right: 200px;
+}
+
+.mail_address{
+  position: relative;
+  padding-right: 165px;
+}
+.password{
+  position: relative;
+  padding-right: 200px;
+}
+
+input{
+  height: 35px;
+  width: 300px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.submit{
+  background: rgb(247,190,0);
+  color: white;
+  border-radius: 7px;
+  font-size: 18px;
+}
+
+.submit:hover{
+  background: lighten(rgb(247,190,0),10%);
+  cursor: pointer;
+}
+
+// ---------ログイン画面---------
+
+.login{
+  position: absolute;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 150px;
+}
+
+.login_form{
+  font-size: 20px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+.title_login{
+  margin-bottom: 50px;
+}
+
+.login_hedding{
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.login_box{
+  padding: 2em 1em;
+  margin: 30px 500px;
+  font-weight: bold;
+  background: #FFF;
+  border: solid 3px rgb(247,190,0);
+  border-radius: 10px;
+}
+
+.login_password{
+  position: relative;
+  padding-right: 200px;
+}
+
+.login_mail_address{
+  position: relative;
+  // right: 95px;
+  padding-right: 165px;
+
+}
