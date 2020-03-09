@@ -1,36 +1,38 @@
-<div class="new_register">
-  <div class="register_heading">
-    <div class="title_new">
-      <h1>Leave it.</h1>
-    </div>
+<div class="container">
+  <div class="new_register">
+    <!-- <div class="register_heading"> -->
+      <div class="title_new">
+        <h1>Leave it.</h1>
+      </div>
       <div class="register_box">
         <div class="new_user">
           <p>新規登録</p>
         </div>
 
-      <ul class="register_form">
-        <%= form_tag("/users/create") do %>
+        <ul class="register_form">
+          <%= form_tag("/users/create") do %>
 
-        <p class="user_name">ユーザー名</p>
-        <li>
-          <input name="name" value="<%= @user.name %>">
-        </li>
+          <p class="user_name">ユーザー名</p>
+          <li>
+            <input name="name" value="<%= @user.name %>">
+          </li>
 
-        <p class="mail_address">メールアドレス</p>
-        <li>
-          <input name="email" value="<%= @user.email %>">
-        </li>
+          <p class="mail_address">メールアドレス</p>
+          <li>
+            <input name="email" value="<%= @user.email %>">
+          </li>
 
-        <p class="password">パスワード</p>
-        <li>
-          <input type="password" name="password" value="<%= @user.password %>">
-        </li>
+          <p class="password">パスワード</p>
+          <li>
+            <input type="password" name="password" value="<%= @user.password %>">
+          </li>
 
-        <li>
-          <input type="submit" class="submit" value="新規登録">
-        </li>
-        <% end %>
-      </ul>
-    </div>
+          <li>
+            <input type="submit" class="submit" value="新規登録">
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <!-- </div> -->
   </div>
 </div>

@@ -1,58 +1,80 @@
+<%= javascript_include_tag 'drawer' %>
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Leave it.</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>Leave it.</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-</head>
+    <!-- drawer.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+    <!-- iScroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <!-- drawer.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
 
-<body>
 
-  <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <div class="header_logo">
-        <% if @current_user %>
-        <%= link_to("投稿一覧" , "/posts/index") %>
-        <% else %>
-        <%= link_to("Leave it." , "/") %>
-        <% end %>
-      </div>
+  </head>
 
-      <ul class="header-menus">
-        <% if @current_user %>
-        <li>
-          <%= link_to(@current_user.name , "/users/#{@current_user.id}") %>
-        </li>
-        <li>
+  <body class="drawer drawer–-right">
+
+    <div class="container">
+      <header class="drawer-navbar" role="banner">
+        <div class="header_logo">
+          <% if @current_user %>
           <%= link_to("投稿一覧" , "/posts/index") %>
-        </li>
-        <li>
-          <%= link_to("新規投稿" , "/posts/new") %>
-        </li>
-        <li>
-          <%= link_to("ログアウト" , "/logout" , {method: :post}) %>
-        </li>
-        <% else %>
-        <li>
-          <%= link_to("ログイン" , "/login") %>
-        </li>
-        <li>
-          <%= link_to("新規登録" , "/users/new")%>
-        </li>
-        <li>
-          <%= link_to("Leave it.とは" , "/about") %>
-        </li>
-        <% end %>
-      </ul>
-    </header>
+          <% else %>
+          <%= link_to("Leave it." , "/") %>
+          <% end %>
+        </div>
+
+        <div class="drawer-container">
+          <div class="drawer-navbar-header">
+            <button type="button" class="drawer-toggle drawer-hamburger">
+              <span class="sr-only">toggle navigation</span>
+              <span class="drawer-hamburger-icon"></span>
+            </button>
+          </div>
+          <nav class="drawer-nav" role="navigation">
+            <ul class="drawer-menu drawer-menu--right">
+              <% if @current_user %>
+              <li class="drawer-menu-item">
+                <%= link_to(@current_user.name , "/users/#{@current_user.id}") %>
+              </li>
+              <li class="drawer-menu-item">
+                <%= link_to("投稿一覧" , "/posts/index") %>
+              </li>
+              <li class="drawer-menu-item">
+                <%= link_to("新規投稿" , "/posts/new") %>
+              </li>
+              <li class="drawer-menu-item">
+                <%= link_to("ログアウト" , "/logout" , {method: :post}) %>
+              </li>
+              <% else %>
+              <li class="drawer-menu-item">
+                <%= link_to("ログイン" , "/login") %>
+              </li>
+              <li class="drawer-menu-item">
+                <%= link_to("新規登録" , "/users/new")%>
+              </li>
+              <li class="drawer-menu-item">
+                <%= link_to("Leave it.とは" , "/about") %>
+              </li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+
     <% if flash[:notice] %>
     <%= flash[:notice] %>
     <% end %>
-
     <%= yield %>
   </body>
-  </html>
+</html>

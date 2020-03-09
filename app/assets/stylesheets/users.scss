@@ -8,13 +8,13 @@
   text-align: center;
   left: 0;
   right: 0;
-  margin: auto;
   top: 100px;
 }
 
 .register_box{
   padding: 2em 1em;
-  margin: 30px 500px;
+  margin: 0 auto;
+  width: 450px;
   font-weight: bold;
   background: #FFF;
   border: solid 3px rgb(247,190,0);
@@ -68,6 +68,11 @@ input{
   cursor: pointer;
 }
 
+@media(max-width: 1000px){
+  .new_register{
+    // width: 50%;
+  }
+}
 // ---------ログイン画面---------
 
 .login{
@@ -75,7 +80,7 @@ input{
   text-align: center;
   left: 0;
   right: 0;
-  margin: auto;
+  // margin: auto;
   top: 150px;
 }
 
@@ -95,7 +100,9 @@ input{
 
 .login_box{
   padding: 2em 1em;
-  margin: 30px 500px;
+  // margin: 30px 500px;
+  width: 450px;
+  margin: 0 auto;
   font-weight: bold;
   background: #FFF;
   border: solid 3px rgb(247,190,0);
