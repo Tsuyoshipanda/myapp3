@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get 'bookmarks/create'
   get 'bookmarks/destroy'
+
+  get 'rooms/index' => 'rooms#index'
+  resources :rooms, only: %i[show]
   get 'messages' => 'messages#index'
   post 'messages' => 'messages#create'
   post 'top/create' => 'top#create'

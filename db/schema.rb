@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_06_034755) do
+=======
+ActiveRecord::Schema.define(version: 2020_02_27_134815) do
+>>>>>>> real_time-chat
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
@@ -62,6 +66,11 @@ ActiveRecord::Schema.define(version: 2020_03_06_034755) do
     t.date "deadline_3"
     t.date "deadline_4"
     t.date "deadline_5"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "rooms", force: :cascade do |t|
