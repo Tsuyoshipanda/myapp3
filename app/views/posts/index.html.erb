@@ -2,25 +2,30 @@
 
 <p>検索</p>
 <%= form_tag(posts_search_path, method: "get") do %>
-  <%= select_tag 'search_task_type', options_for_select([["選択してください", ""],["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ]) %>
-  <%= text_field_tag 'search_free_word' %>
-  <%= submit_tag '検索' %>
+<%= select_tag 'search_task_type', options_for_select([["選択してください", ""],["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ]) %>
+<%= text_field_tag 'search_free_word' %>
+<%= submit_tag '検索' %>
 <% end %>
 
 
 <% if @posts.blank? %>
-  <h2>該当する投稿はありません</h2>
+<h2>該当する投稿はありません</h2>
 <% end %>
 
 <% @posts.each do |post| %>
-  <%= link_to(post.user.name, "/users/#{post.user.id}")%>
-  <P>
+<%= link_to(post.user.name, "/users/#{post.user.id}")%>
+<P>
   <%= post.task %>
   <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
   <%= post.deadline.strftime("%Y年%m月%d日") %>
-  </p>
+</p>
 
-  <div id = "bookmark_<%= post.id %>">
-    <%= render partial: 'bookmarks/bookmark', locals: {post: post} %>
-  </div>
+<div id = "bookmark_<%= post.id %>">
+  <%= render partial: 'bookmarks/bookmark', locals: {post: post} %>
+</div>
+
+<div class="detail">
+  <%= link_to( "詳細", "/posts/#{post.id}" ) %>
+</div>
+
 <% end %>
