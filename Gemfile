@@ -6,7 +6,7 @@ gem 'bootstrap', '~> 4.3.1'
 
 gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
-gem "font-awesome-rails"
+gem "font-awesome-sass"
 group :development, :test do
   gem 'hirb'
   gem 'hirb-unicode'

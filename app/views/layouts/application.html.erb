@@ -19,7 +19,8 @@
     <header class="drawer-navbar" role="banner">
       <div class="header_logo">
         <% if @current_user %>
-          <%= link_to("投稿一覧" , "/posts/index") %>
+          <%= link_to("Leave it." , "/posts/index")  %>
+          <%= yield :header %>
         <% else %>
           <%= link_to("Leave it." , "/") %>
         <% end %>

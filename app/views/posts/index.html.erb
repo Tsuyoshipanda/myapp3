@@ -1,6 +1,6 @@
-<h1>投稿一覧ページです</h1>
-
-<p>検索</p>
+<div class="search-icon">
+  <i class="fas fa-search"></i>
+</div>
 <%= form_tag(posts_search_path, method: "get") do %>
   <%= select_tag 'search_task_type', options_for_select([["選択してください", ""],["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"] ]) %>
   <%= text_field_tag 'search_free_word' %>
