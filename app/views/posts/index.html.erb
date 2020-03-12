@@ -15,29 +15,9 @@
 <% @posts.each do |post| %>
   <%= link_to(post.user.name, "/users/#{post.user.id}")%>
   <P>
-  <%= post.task1 %>
-  <%= link_to post.task_type_1, posts_search_path(search_task_type: post.task_type_1) %>
-  <%= post.deadline_1.strftime("%Y年%m月%d日") %>
-  </p>
-  <P>
-  <%= post.task2 %>
-  <%= link_to post.task_type_2, posts_search_path(search_task_type: post.task_type_2) %>
-  <%= post.deadline_2.strftime("%Y年%m月%d日") %>
-  </p>
-  <P>
-  <%= post.task3 %>
-  <%= link_to post.task_type_3, posts_search_path(search_task_type: post.task_type_3) %>
-  <%= post.deadline_3.strftime("%Y年%m月%d日") %>
-  </p>
-  <P>
-  <%= post.task4 %>
-  <%= link_to post.task_type_4, posts_search_path(search_task_type: post.task_type_4) %>
-  <%= post.deadline_4.strftime("%Y年%m月%d日") %>
-  </p>
-  <P>
-  <%= post.task5 %>
-  <%= link_to post.task_type_5, posts_search_path(search_task_type: post.task_type_5) %>
-  <%= post.deadline_5.strftime("%Y年%m月%d日") %>
+  <%= post.task %>
+  <%= link_to post.task_type, posts_search_path(search_task_type: post.task_type) %>
+  <%= post.deadline.strftime("%Y年%m月%d日") %>
   </p>
 
   <div id = "bookmark_<%= post.id %>">

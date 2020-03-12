@@ -7,22 +7,13 @@
 </p>
 <% @user.posts.each do |post| %>
   <%= link_to(post.user.name, "/users/#{post.user.id}")%>
-  <p><%= post.task1 %><%= post.task_type_1%></p>
-  <p><%= post.task2 %><%= post.task_type_2%></p>
-  <p><%= post.task3 %><%= post.task_type_3%></p>
-  <p><%= post.task4 %><%= post.task_type_4%></p>
-  <p><%= post.task5 %><%= post.task_type_5%></p>
+  <p><%= post.task %><%= post.task_type %></p>
 <% end %>
 
 <% @bookmark_posts.each do |post| %>
   <hr>
   <span>ブックマーク内容: </span>
   <p><%= link_to(post.user.name, "/users/#{post.user.id}")%></p>
-  <p><%= post.task1 %><%= post.task_type_1%></p>
-  <p><%= post.task2 %><%= post.task_type_2%></p>
-  <p><%= post.task3 %><%= post.task_type_3%></p>
-  <p><%= post.task4 %><%= post.task_type_4%></p>
-  <p><%= post.task5 %><%= post.task_type_5%></p>
-
+  <p><%= post.task %><%= post.task_type %></p>
 
 <% end %>

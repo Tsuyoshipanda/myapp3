@@ -1,10 +1,6 @@
 <h1>投稿詳細ページです</h1>
 <%= link_to(@user.name , "/users/#{@user.id}") %>
-<%= @post.task1 %>
-<%= @post.task2 %>
-<%= @post.task3 %>
-<%= @post.task4 %>
-<%= @post.task5 %>
+<%= @post.task %>
 <%= @post.created_at %>
 <%= @post.task_type %>
 <% if @post.user_id == @current_user.id %>
