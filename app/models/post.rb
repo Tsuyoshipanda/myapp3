@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   validates :task, {presence: true}
   validates :task_type, {presence: true}
   has_many :bookmarks
+  has_many_attached :images
   belongs_to :user
 
   def bookmarked_by?(user)

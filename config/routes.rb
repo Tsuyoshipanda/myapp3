@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :documents
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   get 'messages' => 'messages#index'

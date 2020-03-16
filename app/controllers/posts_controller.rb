@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:task,:task_type,:"deadline(1i)",:"deadline(2i)",:"deadline(3i)"))
+    @post = Post.new(params.require(:post).permit(:task,:task_type,:"deadline(1i)",:"deadline(2i)",:"deadline(3i)",images: []))
     @post.user_id = @current_user.id
     @post.save
     redirect_to("/posts/index")

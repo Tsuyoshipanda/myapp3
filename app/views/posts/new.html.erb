@@ -1,6 +1,6 @@
 <h1>投稿用ページ</h1>
 
-<%= form_for @post,url:posts_create_path do |f| %>
+<%= form_for(@post, url:posts_create_path)  do |f| %>
   <p><%= f.label :task, "task" %>
      <%= f.text_field :task %>
      <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
@@ -15,5 +15,6 @@
                  '年 ', '月 ') + '日'
       %>
   </p>
+  <p><%= f.file_field :images, multiple: true %><br></p>
   <%= f.submit "投稿" %>
 <% end %>
