@@ -3,11 +3,14 @@
 <%= @post.task %>
 <%= @post.created_at %>
 <%= @post.task_type %>
-<% if @post.images.attached? %>
+<p><% if @post.images.attached? %>
   <% @post.images.each do |image| %>
     <%= image_tag image %> <br>
+    <%= link_to 'ダウンロード', rails_blob_path(image, disposition: "attachment") %>
+    <%= link_to 'ファイルを見る', url_for(image) %>
   <% end %>
 <% end %>
+</p>
 <% if @post.user_id == @current_user.id %>
   <%= link_to("編集" , "/posts/#{@post.id}/edit", id: @post.id) %>
   <%= link_to("削除" , "/posts/#{@post.id}/destroy" , {method: "post"}) %>
