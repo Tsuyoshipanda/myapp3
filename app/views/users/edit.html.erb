@@ -1,7 +1,3 @@
-<% @user.errors.full_messages.each do |message| %>
-  <%= message %>
-<% end %>
-
 <%= form_for(@user, url:"/users/#{@user.id}/update", html:{method: "post"}) do |f| %>
   <p>ユーザー名</p>
   <%= f.text_field :name, value:@user.name %>
