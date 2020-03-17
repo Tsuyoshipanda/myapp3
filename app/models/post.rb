@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+
+  default_scope -> { order(created_at: :desc) }
+
   def user
     return User.find_by(id: self.user_id)
   end
