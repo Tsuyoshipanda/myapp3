@@ -2,10 +2,12 @@
   <%= message %>
 <% end %>
 
-<%= form_tag("/users/#{@user.id}/update") do %>
+<%= form_for(@user, url:"/users/#{@user.id}/update", html:{method: "post"}) do |f| %>
   <p>ユーザー名</p>
-  <input type="text" name="name" value="<%= @user.name %>">
+  <%= f.text_field :name, value:@user.name %>
   <p>メールアドレス</p>
-  <input type="text" name="email" value="<%= @user.email %>">
-  <input type="submit" value="保存">
+  <%= f.text_field :email, value:@user.email %>
+  <p>プロフィール画像</p>
+  <%= f.file_field :avatar, value:@user.avatar%>
+  <%= f.submit "保存"%>
 <% end %>

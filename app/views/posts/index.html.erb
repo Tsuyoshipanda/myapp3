@@ -13,6 +13,11 @@
 <% end %>
 
 <% @posts.each do |post| %>
+<%if post.user.avatar.attached? %>
+  <%= link_to(image_tag(post.user.avatar.variant(resize: '50x50^',crop:"50x50+0+0",gravity: :center).processed) , "/users/#{post.user.id}") %>
+<% else %>
+  <%= link_to(image_tag('default-image.png', :size=>'50x50'), "/users/#{post.user.id}")%>
+<% end %>
 <%= link_to(post.user.name, "/users/#{post.user.id}")%>
 <P>
   <%= post.task %>

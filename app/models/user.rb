@@ -8,9 +8,10 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :posts
   has_many :bookmark_posts, through: :bookmarks, source: :post
+  has_one_attached :avatar
 
   def posts
     return Post.where(user_id: self.id)
   end
-  
+
 end
