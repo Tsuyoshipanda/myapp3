@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_100601) do
+ActiveRecord::Schema.define(version: 2020_03_17_140238) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,12 +57,6 @@ ActiveRecord::Schema.define(version: 2020_03_12_100601) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "documents", force: :cascade do |t|
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
@@ -77,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_100601) do
     t.text "task"
     t.string "task_type"
     t.date "deadline"
+    t.integer "work_count"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -96,6 +91,13 @@ ActiveRecord::Schema.define(version: 2020_03_12_100601) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password"
+  end
+
+  create_table "works", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_id"
+    t.integer "user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

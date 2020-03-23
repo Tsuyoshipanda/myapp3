@@ -58,7 +58,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(user_params_update)
-      flash[:notice] = "ユーザー情報を編集しました"
       redirect_to("/users/#{@user.id}")
     else
       render("users/edit")
@@ -71,6 +70,12 @@ class UsersController < ApplicationController
       redirect_to("/posts/index")
     end
   end
+
+  # def point
+  #   @user = User.find_by(id: params[:id])
+  #   @user.point += 10
+  #   redirect_to("/users/#{@user.id}")
+  # end
 
 
   private

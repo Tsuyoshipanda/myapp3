@@ -8,6 +8,9 @@
 <%= @post.task %>
 <%= @post.created_at %>
 <%= @post.task_type %>
+<div id="works_buttons">
+ <%= render partial: 'works/work', locals: { post: @post, works: @works} %>
+</div>
 <p>
 <% if @post.images.attached? %>
   <% @post.images.each do |image| %>
