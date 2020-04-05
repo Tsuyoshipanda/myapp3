@@ -1,11 +1,13 @@
 <h1>投稿用ページ</h1>
 
-<%= form_for(@post, url:posts_create_path)  do |f| %>
-  <p><%= f.label :task, "task" %>
-     <%= f.text_field :task %>
-     <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
-     <%= f.label :deadline, "締め切り" %>
-     <%= raw sprintf(
+
+<%= form_with model:@post, local:true  do |f| %>
+  <p>
+    <%= f.label :task, "task" %>
+    <%= f.text_field :task %>
+    <%= f.select :task_type, [["簡単", "簡単"],  ["難しい", "難しい"], ["短時間", "短時間"],["長時間", "長時間"], ["a", "a"] ], :prompt => "選択してください"%>
+    <%= f.label :deadline, "締め切り" %>
+    <%= raw sprintf(
                  f.date_select(
                      :deadline,
                      use_month_numbers: true,
@@ -13,8 +15,26 @@
                      default:           Date.today,
                      date_separator:    '%s'),
                  '年 ', '月 ') + '日'
-      %>
+     %>
+
   </p>
-  <p><%= f.file_field :images, multiple: true %><br></p>
+
+  <div class='sell-container__content'>
+    <div class='sell-container__content__max-sheet'></div>
+    <div class='sell-container__content__upload'>
+      <div class='sell-container__content__upload__items'>
+        <div class='sell-container__content__upload__items__box'>
+          <ul id='output-box'>
+            <div id='image-input'>
+              <%= f.label :images, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 }  %>
+                <%= f.file_field :images, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0"%>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class='error-messages' id='error-image'></div>
+  </div>
+
   <%= f.submit "投稿" %>
 <% end %>
