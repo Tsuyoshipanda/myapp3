@@ -11,3 +11,7 @@
   <%= link_to("編集" , "/posts/#{@post.id}/edit", id: @post.id) %>
   <%= link_to("削除" , "/posts/#{@post.id}/destroy" , {method: "post"}) %>
 <% end %>
+
+<div id="messages">
+  <%= render @messages %>
+</div>
