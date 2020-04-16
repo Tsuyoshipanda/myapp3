@@ -25,11 +25,9 @@
         <div class='sell-container__content__upload__items__box'>
           <ul id='output-box'>
             <div id='image-input' tabindex="0">
-              <div class="field">
                 <%= f.label :images, for: "item_images0", class: 'sell-container__content__upload__items__box__label', data: {label_id: 0 } do %>
                 <%= f.file_field :images, multiple: true, class: "sell-container__content__upload__items__box__input", id: "item_images0"%>
                 <% end %>
-              </div>
             </div>
           </ul>
         </div>

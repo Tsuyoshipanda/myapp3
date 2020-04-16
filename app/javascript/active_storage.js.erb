@@ -11,6 +11,7 @@ $(document).on('turbolinks:load', function(){
           let imageLength = $('#output-box').children('li').length;
 
           let labelLength = $("#image-input>label").eq(-1).data('label-id');
+          console.log(labelLength);
 
           $('#image-input').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
                                       <figure class="preview-image__figure">
@@ -25,7 +26,7 @@ $(document).on('turbolinks:load', function(){
 
 
           $("#image-input").append(`<label for="item_images${labelLength+1}" class="sell-container__content__upload__items__box__label" data-label-id="${labelLength+1}">
-                                      <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" style="display: none;" type="file" name="item[images][]">
+                                      <input multiple="multiple" class="sell-container__content__upload__items__box__input" id="item_images${labelLength+1}" type="file" name="post[images][]">
                                       <i class="fas fa-camera fa-lg"></i>
                                     </label>`);
         };
