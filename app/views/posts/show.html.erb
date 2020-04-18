@@ -14,8 +14,10 @@
 <p>
 <% if @post.images.attached? %>
   <% @post.images.each do |image| %>
+  <p>
     <%= link_to 'ダウンロード', rails_blob_path(image, disposition: "attachment") %>
     <%= link_to URI.unescape(File.basename(url_for(image))), url_for(image) %>
+  </p>
   <% end %>
 <% end %>
 </p>

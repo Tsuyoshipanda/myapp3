@@ -11,11 +11,14 @@ $(document).on('turbolinks:load', function(){
           let imageLength = $('#output-box').children('li').length;
 
           let labelLength = $("#image-input>label").eq(-1).data('label-id');
-          console.log(labelLength);
+
+          var url = URL.createObjectURL(file);
+
+          console.log(url);
 
           $('#image-input').before(`<li class="preview-image" id="upload-image${labelLength}" data-image-id="${labelLength}">
                                       <figure class="preview-image__figure">
-                                        <img src='${e.target.result}' title='${file.name}' >
+                                        <a href=${url}>${file.name}</a>
                                       </figure>
                                       <div class="preview-image__button">
                                         <a class="preview-image__button__edit">編集</a>
