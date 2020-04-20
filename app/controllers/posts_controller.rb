@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
+    @message = Message.find_by(group_id: params[:group_id])
   end
 
   def new
