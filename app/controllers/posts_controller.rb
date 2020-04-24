@@ -9,9 +9,8 @@ class PostsController < ApplicationController
     if params[:search_task_type] == nil && params[:search_free_word] == nil
       @posts = Post.where("deadline >= ?", Date.today)
     else
-      @posts = Post.where('task_type=? OR task LIKE ?', params[:search_task_type], "%#{params[:search_free_word]}%").where("deadline >= ?", Date.today)
+      @posts = Post.where('task_type=?', params[:search_task_type]).where('task LIKE ?', "%#{params[:search_free_word]}%").where("deadline >= ?", Date.today)
     end
-
   end
 
   def show
