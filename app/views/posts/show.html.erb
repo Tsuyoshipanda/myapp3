@@ -1,27 +1,35 @@
 <h1>投稿詳細ページ</h1>
 <%if @user.avatar.attached? %>
-  <%= link_to(image_tag(@user.avatar.variant(resize: '50x50^',crop:"50x50+0+0",gravity: :center).processed) , "/users/#{@user.id}") %>
+<%= link_to(image_tag(@user.avatar.variant(resize: '50x50^',crop:"50x50+0+0",gravity: :center).processed) , "/users/#{@user.id}") %>
 <% else %>
-  <%= link_to(image_tag('default-image.png', :size=>'50x50'), "/users/#{@user.id}")%>
+<%= link_to(image_tag('default-image.png', :size=>'50x50'), "/users/#{@user.id}")%>
 <% end %>
 <%= link_to(@user.name , "/users/#{@user.id}") %>
 <%= @post.task %>
 <%= @post.created_at %>
 <%= @post.task_type %>
 <div id="works_buttons">
- <%= render partial: 'works/work', locals: { post: @post, works: @works} %>
+  <%= render partial: 'works/work', locals: { post: @post, works: @works} %>
 </div>
 <p>
-<% if @post.images.attached? %>
+  <% if @post.images.attached? %>
   <% @post.images.each do |image| %>
   <p>
     <%= link_to 'ダウンロード', rails_blob_path(image, disposition: "attachment") %>
     <%= link_to URI.unescape(File.basename(url_for(image))), url_for(image) %>
   </p>
   <% end %>
-<% end %>
+  <% end %>
 </p>
 <% if @post.user_id == @current_user.id %>
-  <%= link_to("編集" , "/posts/#{@post.id}/edit", id: @post.id) %>
-  <%= link_to("削除" , "/posts/#{@post.id}/destroy" , {method: "post"}) %>
+<%= link_to("編集" , "/posts/#{@post.id}/edit", id: @post.id) %>
+<%= link_to("削除" , "/posts/#{@post.id}/destroy" , {method: "post"}) %>
 <% end %>
+
+<div id="form">
+  <%= render 'form' %>
+</div>
+
+<div id="messages">
+  <%= render @messages %>
+</div>

@@ -12,6 +12,7 @@ class Post < ApplicationRecord
   has_many :bookmarks
   has_many_attached :images
   has_many :works, dependent: :destroy
+  has_many :messages
   belongs_to :user
 
 

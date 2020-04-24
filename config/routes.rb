@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   get 'messages' => 'messages#index'
-  post 'messages' => 'messages#create'
+  post 'messages' => 'posts#message_create'
   post 'top/create' => 'top#create'
   get 'top/show' => 'top#show'
   get 'login' => 'users#login_form'

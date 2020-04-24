@@ -1,25 +1,14 @@
 class MessagesController < ApplicationController
-
-  def index
-    @messages = Message.all
-    @message = Message.new
-  end
-
   def create
     @message = Message.new(message_params)
-    if @message.save
-      respond_to do |format|
-        format.html { redirect_to "messages_path" }
-        format.json
-      end
-    else
-      render :index
-    end
+    @message.user_id = @current_user.id
+    @message.post_id = @post.id
+    @message.save
   end
 
   private
-  def message_params
-    params.require(:message).permit(:message)
-  end
 
+  def message_params
+    params.require(:message).permit(:content )
+  end
 end

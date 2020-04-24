@@ -14,13 +14,10 @@ class PostsController < ApplicationController
 
   end
 
-  def type
-  end
-
-
   def show
     @post = Post.find_by(id: params[:id])
     @user = @post.user
+    @messages = Message.all
   end
 
   def new
@@ -43,7 +40,6 @@ class PostsController < ApplicationController
     @post.task = params[:task]
     @post.task_type = params[:task_type]
     @post.save
-
     redirect_to("/posts/index")
   end
 
@@ -71,6 +67,18 @@ class PostsController < ApplicationController
       params[:search_free_word] = nil
     end
     redirect_to posts_index_path(search_task_type: params[:search_task_type], search_free_word: params[:search_free_word])
+  end
+
+  def message_create
+    @message = Message.new(message_params)
+    @message.user_id = @current_user.id
+    @message.save
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:content, :post_id)
   end
 
 end
